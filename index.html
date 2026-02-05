@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixRhino - Join the Waitlist</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <!-- Background Image is handled in CSS -->
+
+        <!-- Desktop Logo: Top Right -->
+        <div class="desktop-logo">
+            <img src="images/FixRhino_logo.png" alt="FixRhino Logo">
+        </div>
+
+        <!-- Mobile View: Logo at top -->
+        <div class="mobile-top-logo">
+            <img src="images/FixRhino_logo.png" alt="FixRhino Logo">
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Left Side: Content -->
+            <div class="text-content">
+                <div class="text-card-background"></div> <!-- Gradient Overlay Hook -->
+                <div class="text-card">
+                    <h1 class="main-title">FixRhino</h1>
+                    <p class="description">
+                        FixRhino is tech business leveraging AI to convert consumer electronics manufacturer's approved
+                        repair manuals into interactive, beginner-friendly, step-by-step audiovisual repair experiences
+                        that dramatically increase successful self-repair outcomes for consumers
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Side: Form -->
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Join the FixRhino Waitlist</h2>
+                </div>
+
+                <form action="submit.php" method="POST" id="waitlistForm">
+
+                    <!-- Devices Input (Custom Tag/Chip Input) -->
+                    <div class="form-group">
+                        <label for="device-search">What device(s) do you mostly want to learn to repair?</label>
+                        <div class="search-input-wrapper">
+                            <input type="text" id="device-search" placeholder="Type to search device here">
+                        </div>
+
+                        <!-- Selected Tags Area -->
+                        <div class="tags-container" id="tags-container">
+                            <div class="tag">Smartphone <span class="remove-tag" onclick="removeTag(this)">×</span>
+                            </div>
+                            <div class="tag">iPhone 17 Pro <span class="remove-tag" onclick="removeTag(this)">×</span>
+                            </div>
+                            <div class="tag">Nikon Digi508 <span class="remove-tag" onclick="removeTag(this)">×</span>
+                            </div>
+                            <div class="tag">Android Devices <span class="remove-tag" onclick="removeTag(this)">×</span>
+                            </div>
+                            <div class="tag">HP Laptop <span class="remove-tag" onclick="removeTag(this)">×</span></div>
+                            <div class="tag">Laptops <span class="remove-tag" onclick="removeTag(this)">×</span></div>
+                        </div>
+                        <!-- Hidden input to store tags for form submission -->
+                        <input type="hidden" name="devices" id="devices-hidden-input"
+                            value="Smartphone,iPhone 17 Pro,Nikon Digi508,Android Devices,HP Laptop,Laptops">
+                    </div>
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Marcus O'Byrne" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="phone-input-container">
+                            <div class="flag-prefix">
+                                <img src="images/flag.png" alt="Flag">
+                            </div>
+                            <input type="tel" id="phone" name="phone" placeholder="+353 00 112 3344">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">JOIN WAITLIST</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Page Level Flag (Bottom Right) -->
+        <div class="page-flag">
+            <img src="images/flag.png" alt="Country Flag">
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

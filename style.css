@@ -1,0 +1,429 @@
+:root {
+    --primary-color: #21C1A5;
+    --secondary-color: #D3ECE9;
+    --bg-dark: #0a0a0a;
+    /* Fallback */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-dark);
+    background-image: url('images/background_image.png');
+    /* Ensure this filename matches exactly */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    padding: 4rem;
+    /* Increased from 2rem for more whitespace */
+    margin: 0 auto;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Left Side Text */
+.text-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.main-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    /* Reduced from 128px */
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+}
+
+.description {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    /* Reduced from 32px */
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--secondary-color);
+    max-width: 85%;
+}
+
+/* Right Side Form - Glassmorphism */
+.form-container {
+    flex: 1;
+    min-width: 350px;
+    max-width: 550px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.form-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 137.5%;
+    color: #FFFFFF;
+    max-width: 80%;
+}
+
+/* Desktop Logo Positioning */
+.desktop-logo {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.desktop-logo img {
+    width: 60px;
+    height: auto;
+    border-radius: 12px;
+    background: var(--primary-color);
+    padding: 3px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Page Flag Positioning */
+.page-flag {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.page-flag img {
+    height: 39px;
+    /* Larger as per design visual implied importance */
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Text Gradient Overlay */
+.text-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    position: relative;
+    /* Ensure content is readable */
+}
+
+.text-card-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(closest-side, rgba(0, 0, 0, 0.8), transparent);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(20px);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    /* Semibold */
+    font-size: 20px;
+    /* Adjusted from user request slightly for label context, user said subheadings are 20px */
+    line-height: 137.5%;
+    color: var(--secondary-color);
+    /* Keeping labels consistently secondary color or white? User said subheading font 20px color #D3ECE9 */
+    margin-bottom: 8px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Tag/Chip Logic */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    /* Fully rounded caps */
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remove-tag {
+    cursor: pointer;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.remove-tag:hover {
+    color: #fff;
+}
+
+/* Phone Input Styling */
+.phone-input-container {
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.flag-prefix {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flag-prefix img {
+    height: 20px;
+    width: auto;
+}
+
+.phone-input-container input {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    background: var(--primary-color);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 16px;
+    border: none;
+    border-radius: 30px;
+    /* Pill shape */
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(33, 193, 165, 0.4);
+}
+
+/* Responsive */
+/* Mobile Top Logo */
+.mobile-top-logo {
+    display: none;
+    /* Hidden on desktop */
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.mobile-top-logo img {
+    width: 60px;
+    height: auto;
+    background: var(--primary-color);
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.text-card-flag {
+    display: none;
+    /* Hidden on desktop usually unless desired */
+    margin-top: 20px;
+}
+
+.text-card-flag img {
+    height: 24px;
+    width: auto;
+    border-radius: 2px;
+}
+
+/* Desktop Only Helper */
+.desktop-only {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-title {
+        font-size: 100px;
+    }
+
+    .description {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        /* Allow scrolling from top */
+        padding-top: 20px;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Mobile Logo Visibility */
+    .mobile-top-logo {
+        display: flex;
+    }
+
+    .desktop-logo {
+        display: none;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Text Card Glassmorphism on Mobile */
+    .text-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .text-card {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        text-align: left;
+        position: relative;
+    }
+
+    .main-title {
+        font-size: 64px;
+        /* Adjusted for mobile card */
+        text-align: left;
+        margin-bottom: 16px;
+    }
+
+    .description {
+        font-size: 18px;
+        text-align: left;
+        color: #fff;
+        /* Ensure high contrast in card */
+        opacity: 0.9;
+        line-height: 1.5;
+    }
+
+    .text-card-flag {
+        display: block;
+        /* Show flag on mobile card */
+    }
+
+    /* Form Container Adjustments */
+    .form-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        /* Consistent glass */
+    }
+
+    .form-header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .form-header h2 {
+        font-size: 28px;
+        max-width: 100%;
+    }
+
+    /* Tag/Chip adjustments for mobile */
+    .tags-container {
+        justify-content: flex-start;
+    }
+
+    .tag {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
