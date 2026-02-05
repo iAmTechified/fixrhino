@@ -1,7 +1,21 @@
 {
     "functions": {
-        "submit.php": {
+        "api/submit.php": {
             "runtime": "vercel-php@0.6.0"
         }
-    }
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        },
+        {
+            "src": "/api/submit.php",
+            "dest": "/api/submit.php"
+        },
+        {
+            "src": "/(.*).(css|png|jpg|js|svg)",
+            "dest": "/$1.$2"
+        }
+    ]
 }

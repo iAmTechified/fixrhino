@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
 // NOTE: You must run 'composer require phpmailer/phpmailer' in this directory for this to work.
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 // Configuration
 $googleScriptUrl = getenv('GOOGLE_SCRIPT_URL') ?: 'https://script.google.com/macros/s/AKfycbzr9uM9i2dN846_ppW-QKxb30cVqJzy1qJ5ZRJH48KMhQz0p05rsxZMf_-K-jfETkie/exec'; // Replace with your deployed Google Script URL
