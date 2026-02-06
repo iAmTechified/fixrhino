@@ -58,24 +58,15 @@
                         <label for="device-search">What device(s) do you mostly want to learn to repair?</label>
                         <div class="search-input-wrapper">
                             <input type="text" id="device-search" placeholder="Type to search device here">
+                            <button type="button" id="add-tag-btn" class="add-tag-btn">+</button>
                         </div>
 
                         <!-- Selected Tags Area -->
                         <div class="tags-container" id="tags-container">
-                            <div class="tag">Smartphone <span class="remove-tag" onclick="removeTag(this)">×</span>
-                            </div>
-                            <div class="tag">iPhone 17 Pro <span class="remove-tag" onclick="removeTag(this)">×</span>
-                            </div>
-                            <div class="tag">Nikon Digi508 <span class="remove-tag" onclick="removeTag(this)">×</span>
-                            </div>
-                            <div class="tag">Android Devices <span class="remove-tag" onclick="removeTag(this)">×</span>
-                            </div>
-                            <div class="tag">HP Laptop <span class="remove-tag" onclick="removeTag(this)">×</span></div>
-                            <div class="tag">Laptops <span class="remove-tag" onclick="removeTag(this)">×</span></div>
+                            <!-- Tags will be added here dynamically -->
                         </div>
                         <!-- Hidden input to store tags for form submission -->
-                        <input type="hidden" name="devices" id="devices-hidden-input"
-                            value="Smartphone,iPhone 17 Pro,Nikon Digi508,Android Devices,HP Laptop,Laptops">
+                        <input type="hidden" name="devices" id="devices-hidden-input" value="">
                     </div>
 
                     <!-- Full Name -->
@@ -97,7 +88,7 @@
                             <div class="flag-prefix">
                                 <img src="images/flag.png" alt="Flag">
                             </div>
-                            <input type="tel" id="phone" name="phone" placeholder="+353 00 112 3344">
+                            <input type="number" id="phone" name="phone" placeholder="+353 00 112 3344"  min="0" maxlength="17">
                         </div>
                     </div>
 
@@ -111,6 +102,40 @@
             <img src="images/flag.png" alt="Country Flag">
         </div>
     </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="overlay hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-effect">
+            <div class="icon-circle success">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h3>Welcome to the List!</h3>
+            <p>You've successfully joined the FixRhino waitlist. We'll be in touch soon.</p>
+            <button onclick="closeModal('success-modal')" class="modal-btn">AWESOME</button>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-effect">
+            <div class="icon-circle error">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <h3>Something Went Wrong</h3>
+            <p>We couldn't process your request. Please try again later.</p>
+            <button onclick="closeModal('error-modal')" class="modal-btn">CLOSE</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
